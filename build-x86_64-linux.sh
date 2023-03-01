@@ -53,16 +53,6 @@ echo "--------------------------------"
 
 set +e
 
-echo -n "Checking Clang - "
-CLANG_BIN_PATH="$(type -P clang)"
-if [ -z "$CLANG_BIN_PATH" ]; then
-	echo "ERROR: Clang is not installed"
-	echo "Install Clang with 'apt install clang'"
-	exit 1
-fi
-export BAZEL_LLVM="$(realpath "$(dirname "$CLANG_BIN_PATH")/../")"
-echo "OK (Found at $CLANG_BIN_PATH)"
-
 echo -n "Checking Bazel (5.2.0) - "
 BAZEL_BIN_PATH="$(type -P bazel-5.2.0)"
 if [ -z "$BAZEL_BIN_PATH" ]; then

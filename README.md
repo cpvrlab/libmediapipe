@@ -10,10 +10,8 @@ This produces a shared library that can subsequently be used in CMake/Visual Stu
 ### Linux
 
 #### Requirements
-- Python 3:
-```apt install python3```
+- Python 3: ```apt install python3```
 - Bazel 5.2.0: https://bazel.build/install/ubuntu
-- Clang: ```apt install clang```
 - Numpy: ```pip3 install numpy```
 
 #### Build and install OpenCV 4.5.5
