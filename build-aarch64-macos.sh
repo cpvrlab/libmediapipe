@@ -51,6 +51,8 @@ DATA_DIR="$OUTPUT_DIR/data"
 
 echo "--------------------------------"
 
+set +e
+
 echo -n "Checking Clang - "
 CLANG_BIN_PATH="$(type -P clang)"
 if [ -z "$CLANG_BIN_PATH" ]; then
@@ -64,7 +66,7 @@ echo -n "Checking Bazelisk - "
 BAZELISK_BIN_PATH="$(type -P bazelisk)"
 if [ -z "BAZELISK_BIN_PATH" ]; then
 	echo "ERROR: Baselisk is not installed"
-	echo "Install Bazelisk with `brew install baselisk`"
+	echo "Install Bazelisk with 'brew install baselisk'"
 	exit 1
 fi
 echo "OK (Found at $BAZELISK_BIN_PATH)"
@@ -76,6 +78,8 @@ if [ -z "$PYTHON_BIN_PATH" ]; then
 	exit 1
 fi
 echo "OK (Found at $PYTHON_BIN_PATH)"
+
+set -e
 
 echo "--------------------------------"
 echo "CLONING MEDIAPIPE"

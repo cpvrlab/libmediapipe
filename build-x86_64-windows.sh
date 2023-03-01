@@ -53,7 +53,7 @@ echo -n "Checking Clang - "
 CLANG_BIN_PATH="$(type -P clang-cl)"
 if [ -z "$CLANG_BIN_PATH" ]; then
 	echo "ERROR: Clang is not installed"
-	echo "Download Clang from: https://github.com/llvm/llvm-project/releases"
+	echo "Download Clang from https://github.com/llvm/llvm-project/releases"
 	exit 1
 fi
 export BAZEL_LLVM="$(realpath "$(dirname "$CLANG_BIN_PATH")/../")"
@@ -63,7 +63,7 @@ echo -n "Checking Bazel - "
 BAZEL_BIN_PATH="$(type -P bazel)"
 if [ -z "$BAZEL_BIN_PATH" ]; then
 	echo "ERROR: Bazel is not installed"
-	echo "Download Bazel from: https://github.com/bazelbuild/bazel/releases"
+	echo "Download Bazel from https://github.com/bazelbuild/bazel/releases"
 	exit 1
 fi
 echo "OK (Found at $BAZEL_BIN_PATH)"
@@ -72,7 +72,7 @@ echo -n "Checking Python - "
 PYTHON_BIN_PATH="$(type -P python)"
 if [ -z "$PYTHON_BIN_PATH" ]; then
 	echo "ERROR: Python is not installed"
-	echo "Download Python from: https://www.python.org/downloads/"
+	echo "Download Python from https://www.python.org/downloads/"
 	exit 1
 fi
 echo "OK (Found at $PYTHON_BIN_PATH)"

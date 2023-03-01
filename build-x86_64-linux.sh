@@ -51,11 +51,13 @@ DATA_DIR="$OUTPUT_DIR/data"
 
 echo "--------------------------------"
 
+set +e
+
 echo -n "Checking Clang - "
 CLANG_BIN_PATH="$(type -P clang)"
 if [ -z "$CLANG_BIN_PATH" ]; then
 	echo "ERROR: Clang is not installed"
-	echo "Install Clang with `apt install clang`"
+	echo "Install Clang with 'apt install clang'"
 	exit 1
 fi
 export BAZEL_LLVM="$(realpath "$(dirname "$CLANG_BIN_PATH")/../")"
@@ -73,10 +75,12 @@ echo -n "Checking Python - "
 PYTHON_BIN_PATH="$(type -P python3)"
 if [ -z "$PYTHON_BIN_PATH" ]; then
 	echo "ERROR: Python is not installed"
-	echo "Install Python with `apt install python3`"
+	echo "Install Python with 'apt install python3'"
 	exit 1
 fi
 echo "OK (Found at $PYTHON_BIN_PATH)"
+
+set -e
 
 echo "--------------------------------"
 echo "CLONING MEDIAPIPE"
