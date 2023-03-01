@@ -128,10 +128,10 @@ MEDIAPIPE_API mp_instance* mp_create_instance(mp_instance_builder* builder) {
     mediapipe::CalculatorGraphConfig config;
 
     std::ifstream stream(builder->graph_filename, std::ios::binary | std::ios::ate);
-	if (!stream) {
-		last_error = absl::Status(absl::StatusCode::kNotFound, "Failed to open graph file");
-		return nullptr;
-	}
+    if (!stream) {
+        last_error = absl::Status(absl::StatusCode::kNotFound, "Failed to open graph file");
+        return nullptr;
+    }
 
     size_t size = stream.tellg();
     stream.seekg(0, std::ios::beg);
@@ -315,15 +315,15 @@ MEDIAPIPE_API void mp_destroy_packet(mp_packet* packet) {
 }
 
 MEDIAPIPE_API const char* mp_get_packet_type(mp_packet* packet) {
-	mediapipe::TypeId type = packet->packet.GetTypeId();
-	std::string string = type.name();
-	char* buffer = new char[string.size() + 1];
-	std::strcpy(buffer, string.c_str());
-	return buffer;
+    mediapipe::TypeId type = packet->packet.GetTypeId();
+    std::string string = type.name();
+    char* buffer = new char[string.size() + 1];
+    std::strcpy(buffer, string.c_str());
+    return buffer;
 }
 
 MEDIAPIPE_API void mp_free_packet_type(const char* type) {
-	delete[] type;
+    delete[] type;
 }
 
 MEDIAPIPE_API void mp_copy_packet_image(mp_packet* packet, uint8_t* out_data) {
@@ -363,14 +363,14 @@ MEDIAPIPE_API void mp_destroy_rects(mp_rect_list* list) {
 }
 
 MEDIAPIPE_API const char* mp_get_last_error() {
-	std::string string = last_error.ToString();
-	char* buffer = new char[string.size() + 1];
-	std::strcpy(buffer, string.c_str());
-	return buffer;
+    std::string string = last_error.ToString();
+    char* buffer = new char[string.size() + 1];
+    std::strcpy(buffer, string.c_str());
+    return buffer;
 }
 
 MEDIAPIPE_API void mp_free_error(const char* message) {
-	delete[] message;
+    delete[] message;
 }
 
 }
