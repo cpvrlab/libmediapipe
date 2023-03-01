@@ -22,7 +22,7 @@
 #include <iostream>
 
 ABSL_DECLARE_FLAG(std::string, resource_root_dir);
-static absl::Status last_error;
+thread_local absl::Status last_error;
 
 struct mp_node_option {
     const char* node;
