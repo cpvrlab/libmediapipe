@@ -5,7 +5,7 @@ package(default_visibility = [
 cc_binary(
     name = "mediapipe",
     srcs = ["mediapipe.cpp", "mediapipe.h"],
-	defines = ["COMPILING_DLL=1"],
+	defines = ["MEDIAPIPE_EXPORT"],
 	data = [
 		"//mediapipe/modules/face_detection:face_detection_short_range.tflite",
 		"//mediapipe/modules/face_landmark:face_landmark_with_attention.tflite",

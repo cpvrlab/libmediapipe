@@ -5,7 +5,7 @@
 #include <stddef.h>
 
 #if _WIN32
-#   ifdef COMPILING_DLL
+#   ifdef MEDIAPIPE_EXPORT
 #       define MEDIAPIPE_API __declspec(dllexport)
 #   else
 #       define MEDIAPIPE_API __declspec(dllimport)

@@ -100,7 +100,7 @@ int main(int argc, char **argv) {
     mp_instance_builder *builder = mp_create_instance_builder(path.c_str(), "image");
 
     // Configure the graph with node options and side packets.
-    mp_add_option_float(builder, "palmdetectioncpu__TensorsToDetectionsCalculator", "min_score_thresh", 0.8);
+    mp_add_option_float(builder, "palmdetectioncpu__TensorsToDetectionsCalculator", "min_score_thresh", 0.6);
     mp_add_option_double(builder, "handlandmarkcpu__ThresholdingCalculator", "threshold", 0.2);
     mp_add_side_packet(builder, "num_hands", mp_create_packet_int(2));
     mp_add_side_packet(builder, "model_complexity", mp_create_packet_int(1));
