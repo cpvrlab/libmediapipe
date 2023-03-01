@@ -89,7 +89,7 @@ echo -n "Setting up OpenCV - "
 
 LINE=$(grep -n linux_opencv WORKSPACE | cut -d : -f1)
 LINE=$(($LINE + 2))
-sed -i ""$LINE"s;/usr;$OPENCV_DIR;" WORKSPACE
+sed -i ""$LINE"s;\"/usr\";\"$OPENCV_DIR\";" WORKSPACE
 
 sed -i 's;#"include/opencv4/opencv2/\*\*/\*.h\*";"include/opencv4/opencv2/\*\*/\*.h\*";g' third_party/opencv_linux.BUILD
 sed -i 's;#"include/opencv4/";"include/opencv4/";g' third_party/opencv_linux.BUILD

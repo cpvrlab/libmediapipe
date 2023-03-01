@@ -98,7 +98,7 @@ echo -n "Setting up OpenCV - "
 
 LINE=$(grep -n macos_opencv WORKSPACE | cut -d : -f1)
 LINE=$(($LINE + 5))
-sed -i '' ""$LINE"s;/usr/local;$OPENCV_DIR;" WORKSPACE
+sed -i '' ""$LINE"s;\"/usr/local\";\"$OPENCV_DIR\";" WORKSPACE
 
 cp ../patches/opencv_macos.BUILD third_party
 
