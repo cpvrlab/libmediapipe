@@ -66,8 +66,8 @@ curl -L -o opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4
 unzip opencv.zip
 unzip opencv_contrib.zip
 mkdir -p opencv_build && cd opencv_build
-cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-4.5.5/modules ../opencv-4.5.5
-cmake --build .
+cmake -DBUILD_ZLIB=false -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-4.5.5/modules ../opencv-4.5.5
+cmake --build . -j6
 cmake --install .
 ```
 
