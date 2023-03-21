@@ -57,7 +57,7 @@ The installer can be downloaded from https://sourceforge.net/projects/opencvlibr
 - Python: ```brew install python```
 - Bazelisk: ```brew install bazelisk```
 - Xcode
-- Numpy: ```pip install numpy```
+- Numpy: ```pip install numpy``` or ```pip3 install numpy```
 
 #### Build and install OpenCV 4.7.0
 ```
