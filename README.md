@@ -59,14 +59,14 @@ The installer can be downloaded from https://sourceforge.net/projects/opencvlibr
 - Xcode
 - Numpy: ```pip install numpy```
 
-#### Build and install OpenCV 4.5.5
+#### Build and install OpenCV 4.7.0
 ```
-curl -L -o opencv.zip https://github.com/opencv/opencv/archive/4.5.5.zip
-curl -L -o opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.5.5.zip
+curl -L -o opencv.zip https://github.com/opencv/opencv/archive/4.7.0.zip
+curl -L -o opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.7.0.zip
 unzip opencv.zip
 unzip opencv_contrib.zip
 mkdir -p opencv_build && cd opencv_build
-cmake -DBUILD_ZLIB=false -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-4.5.5/modules ../opencv-4.5.5
+cmake -DBUILD_ZLIB=false -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-4.7.0/modules ../opencv-4.7.0
 cmake --build . -j6
 cmake --install .
 ```
