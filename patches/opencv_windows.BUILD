@@ -19,12 +19,12 @@ cc_library(
     name = "opencv",
     srcs = select({
         ":opt_build": glob([
-            "x64/vc15/lib/*455.lib",
-            "x64/vc15/bin/*455.dll",
+            "x64/vc16/lib/*470.lib",
+            "x64/vc16/bin/*470.dll",
         ]),
         ":dbg_build": glob([
-            "x64/vc15/lib/*455d.lib",
-            "x64/vc15/bin/*455d.dll",
+            "x64/vc16/lib/*470d.lib",
+            "x64/vc16/bin/*470d.dll",
         ]),
     }),
     hdrs = glob(["include/opencv2/**/*.h*"]),

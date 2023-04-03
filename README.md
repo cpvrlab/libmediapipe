@@ -14,14 +14,14 @@ This produces a shared library that can subsequently be used in CMake/Visual Stu
 - Bazel 5.2.0: https://bazel.build/install/ubuntu
 - Numpy: ```pip3 install numpy```
 
-#### Build and install OpenCV 4.5.5
+#### Build and install OpenCV 4.7.0
 ```
-wget -O opencv.zip https://github.com/opencv/opencv/archive/4.5.5.zip
-wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.5.5.zip
+wget -O opencv.zip https://github.com/opencv/opencv/archive/4.7.0.zip
+wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/4.7.0.zip
 unzip opencv.zip
 unzip opencv_contrib.zip
 mkdir -p opencv_build && cd opencv_build
-cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-4.5.5/modules ../opencv-4.5.5
+cmake -DOPENCV_EXTRA_MODULES_PATH=../opencv_contrib-4.7.0/modules ../opencv-4.7.0
 cmake --build .
 cmake --install .
 ```
@@ -43,8 +43,8 @@ cd <path to libmediapipe>
 - Git with Bash
 - Numpy: ```pip install numpy```
 
-#### Install OpenCV 4.5.5
-The installer can be downloaded from https://sourceforge.net/projects/opencvlibrary/files/4.5.5/opencv-4.5.5-vc14_vc15.exe/download
+#### Install OpenCV 4.7.0
+The installer can be downloaded from https://github.com/opencv/opencv/releases/download/4.7.0/opencv-4.7.0-windows.exe
 
 #### Run the build script
 ```cd <path to libmediapipe>
