@@ -114,7 +114,13 @@ echo -n "Copying C API - "
 cp -r ../c mediapipe/c
 echo "Done"
 
-bazel build -c opt \
+if [ "$CONFIG" = "debug" ]; then
+	BAZEL_CONFIG="dbg"
+elif [ "$CONFIG" = "release" ]; then
+	BAZEL_CONFIG="opt"
+fi
+
+bazel build -c "$BAZEL_CONFIG" \
 	--action_env PYTHON_BIN_PATH="$PYTHON_BIN_PATH" \
 	--define MEDIAPIPE_DISABLE_GPU=1 \
 	--compiler=clang-cl \
