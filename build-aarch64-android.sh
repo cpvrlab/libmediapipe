@@ -74,6 +74,18 @@ fi
 cd mediapipe
 git checkout "$VERSION"
 
+echo -n "Setting up OpenCV - "
+sed -i 's;3.4.3/opencv-3.4.3-android-sdk.zip;4.7.0/opencv-4.7.0-android-sdk.zip;g' WORKSPACE
+sed -i 's;libopencv_java3;libopencv_java4;g' third_party/opencv_android.BUILD
+echo "Done"
+
+echo -n "Setting up the Android SDK - "
+if ! grep -q "android_sdk_repository" WORKSPACE; then
+	echo -e "\n\nandroid_sdk_repository(name=\"androidsdk\")" >> WORKSPACE
+	echo "android_ndk_repository(name=\"androidndk\", api_level=21)" >> WORKSPACE
+fi
+echo "Done"
+
 echo "--------------------------------"
 echo "BUILDING C API"
 echo "--------------------------------"
