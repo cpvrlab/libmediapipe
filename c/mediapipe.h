@@ -14,6 +14,10 @@
 #   define MEDIAPIPE_API __attribute__((visibility("default")))
 #endif
 
+#ifdef __ANDROID__
+#   include <jni.h>
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -175,6 +179,10 @@ MEDIAPIPE_API bool mp_destroy_instance(mp_instance* instance);
 /// Sets the root resource directory.
 /// Model files referenced in graphs are loaded from this directory.
 MEDIAPIPE_API void mp_set_resource_dir(const char* dir);
+
+#ifdef __ANDROID__
+MEDIAPIPE_API void mp_init_asset_manager(JNIEnv* env, jobject android_context, jstring cache_dir_path);
+#endif
 
 /// Creates a packet with an integer value.
 MEDIAPIPE_API mp_packet* mp_create_packet_int(int value);

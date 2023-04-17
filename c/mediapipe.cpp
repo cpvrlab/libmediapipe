@@ -10,6 +10,11 @@
 #include "mediapipe/calculators/util/thresholding_calculator.pb.h"
 #include "mediapipe/calculators/tensor/tensors_to_detections_calculator.pb.h"
 
+#ifdef __ANDROID__
+#   include "mediapipe/util/android/asset_manager_util.h"
+#   include "mediapipe/framework/port/singleton.h"
+#endif
+
 #include "absl/flags/declare.h"
 #include "absl/flags/flag.h"
 #include "google/protobuf/util/json_util.h"
@@ -279,6 +284,15 @@ MEDIAPIPE_API void mp_set_resource_dir(const char* dir) {
     absl::SetFlag(&FLAGS_resource_root_dir, dir);
 #endif
 }
+
+#ifdef __ANDROID__
+MEDIAPIPE_API void mp_init_asset_manager(JNIEnv* env, jobject android_context, jstring cache_dir_path) {
+    mediapipe::AssetManager* asset_manager = Singleton<mediapipe::AssetManager>::get();
+    const char* c_cache_dir_path = env->GetStringUTFChars(cache_dir_path, nullptr);
+    asset_manager->InitializeFromActivity(env, android_context, c_cache_dir_path);
+    env->ReleaseStringUTFChars(cache_dir_path, c_cache_dir_path);
+}
+#endif
 
 MEDIAPIPE_API mp_packet* mp_create_packet_int(int value) {
     return new mp_packet {
