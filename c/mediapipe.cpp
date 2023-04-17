@@ -21,7 +21,10 @@
 #include <fstream>
 #include <iostream>
 
+#ifndef __ANDROID__
 ABSL_DECLARE_FLAG(std::string, resource_root_dir);
+#endif
+
 thread_local absl::Status last_error;
 
 struct mp_node_option {
@@ -272,7 +275,9 @@ MEDIAPIPE_API bool mp_destroy_instance(mp_instance* instance) {
 }
 
 MEDIAPIPE_API void mp_set_resource_dir(const char* dir) {
+#ifndef __ANDROID__
     absl::SetFlag(&FLAGS_resource_root_dir, dir);
+#endif
 }
 
 MEDIAPIPE_API mp_packet* mp_create_packet_int(int value) {
