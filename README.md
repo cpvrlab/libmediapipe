@@ -82,6 +82,27 @@ cd <path to libmediapipe>
 ./build-<arch>-macos.sh --version v0.8.11 --config release --opencv_dir /usr/local
 ```
 
+### Android
+
+#### Requirements
+- Python 3: ```apt install python3```
+- Bazel 5.2.0: https://bazel.build/install/ubuntu
+- Numpy: ```pip3 install numpy```
+- Android SDK
+- Android NDK 21
+
+#### Environment variables
+```
+export ANDROID_HOME=<path to android sdk>
+export ANDROID_NDK_HOME=<path to android ndk>
+```
+
+#### Run the build script
+```
+cd <path to libmediapipe>
+./build-aarch64-android.sh --version v0.8.11 --config release
+```
+
 ## Usage
 The build script generates an ```output``` directory, which contains the build directory (```libmediapipe-<version>-<arch>-<os>```) and the ```data``` directory (protobuf files and TensorFlow models).
 To use the library, add ```include``` to your include path and link with ```libmediapipe.so```/```mediapipe.lib```/```libmediapipe.dylib```.
