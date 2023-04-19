@@ -178,9 +178,14 @@ MEDIAPIPE_API bool mp_destroy_instance(mp_instance* instance);
 
 /// Sets the root resource directory.
 /// Model files referenced in graphs are loaded from this directory.
+/// This function has no effect on Android because the resources are loaded from assets (see mp_init_asset_manager).
 MEDIAPIPE_API void mp_set_resource_dir(const char* dir);
 
 #ifdef __ANDROID__
+/// Initializes the Android asset manager.
+/// This function must be called before creating an instance so the resources can be loaded.
+/// The asset manager is initialized with Java objects that can be passed to C code through JNI. 
+/// cache_dir_path should be set to android_context.getCacheDir().getAbsolutePath().
 MEDIAPIPE_API void mp_init_asset_manager(JNIEnv* env, jobject android_context, jstring cache_dir_path);
 #endif
 
