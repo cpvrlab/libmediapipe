@@ -75,7 +75,7 @@ cd mediapipe
 git checkout "$VERSION"
 
 echo -n "Setting up OpenCV - "
-sed -i 's;3.4.3/opencv-3.4.3-android-sdk.zip;4.7.0/opencv-4.7.0-android-sdk.zip;g' WORKSPACE
+sed -i 's;3.4.3/opencv-3.4.3-android-sdk.zip;4.5.0/opencv-4.5.0-android-sdk.zip;g' WORKSPACE
 sed -i 's;libopencv_java3;libopencv_java4;g' third_party/opencv_android.BUILD
 echo "Done"
 
@@ -109,6 +109,7 @@ fi
 bazel-5.2.0 build -c "$BAZEL_CONFIG" \
 	--config=android_arm64 \
 	--action_env PYTHON_BIN_PATH="$PYTHON_BIN_PATH" \
+	--linkopt="-Wl,-soname,libmediapipe.so" \
 	mediapipe/c:mediapipe
 
 cd ..
@@ -131,6 +132,7 @@ echo "Done"
 
 echo -n "Copying libraries - "
 cp mediapipe/bazel-bin/mediapipe/c/libmediapipe.so "$PACKAGE_DIR/lib"
+cp $(find -L mediapipe/bazel-bin -name "libopencv_java4.so" | head -n 1) "$PACKAGE_DIR/lib"
 echo "Done"
 
 echo -n "Copying header - "
