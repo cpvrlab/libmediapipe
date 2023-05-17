@@ -93,14 +93,14 @@ sed -i ""$LINE"s;\"/usr\";\"$OPENCV_DIR\";" WORKSPACE
 
 sed -i 's;#"include/opencv4/opencv2/\*\*/\*.h\*";"include/opencv4/opencv2/\*\*/\*.h\*";g' third_party/opencv_linux.BUILD
 sed -i 's;#"include/opencv4/";"include/opencv4/";g' third_party/opencv_linux.BUILD
-sed -i 's;:libopencv_core.so;:'"$OPENCV_DIR"'/lib/libopencv_core.so;g' third_party/opencv_linux.BUILD
-sed -i 's;:libopencv_calib3d.so;:'"$OPENCV_DIR"'/lib/libopencv_calib3d.so;g' third_party/opencv_linux.BUILD
-sed -i 's;:libopencv_features2d.so;':"$OPENCV_DIR"'/lib/libopencv_features2d.so;g' third_party/opencv_linux.BUILD
-sed -i 's;:libopencv_highgui.so;:'"$OPENCV_DIR"'/lib/libopencv_highgui.so;g' third_party/opencv_linux.BUILD
-sed -i 's;:libopencv_imgcodecs.so;:'"$OPENCV_DIR"'/lib/libopencv_imgcodecs.so;g' third_party/opencv_linux.BUILD
-sed -i 's;:libopencv_imgproc.so;:'"$OPENCV_DIR"'/lib/libopencv_imgproc.so;g' third_party/opencv_linux.BUILD
-sed -i 's;:libopencv_video.so;:'"$OPENCV_DIR"'/lib/libopencv_video.so;g' third_party/opencv_linux.BUILD
-sed -i 's;:libopencv_videoio.so;:'"$OPENCV_DIR"'/lib/libopencv_videoio.so;g' third_party/opencv_linux.BUILD
+sed -i 's;-l:libopencv_core.so;'"$OPENCV_DIR"'/lib/libopencv_core.so;g' third_party/opencv_linux.BUILD
+sed -i 's;-l:libopencv_calib3d.so;'"$OPENCV_DIR"'/lib/libopencv_calib3d.so;g' third_party/opencv_linux.BUILD
+sed -i 's;-l:libopencv_features2d.so;'"$OPENCV_DIR"'/lib/libopencv_features2d.so;g' third_party/opencv_linux.BUILD
+sed -i 's;-l:libopencv_highgui.so;'"$OPENCV_DIR"'/lib/libopencv_highgui.so;g' third_party/opencv_linux.BUILD
+sed -i 's;-l:libopencv_imgcodecs.so;'"$OPENCV_DIR"'/lib/libopencv_imgcodecs.so;g' third_party/opencv_linux.BUILD
+sed -i 's;-l:libopencv_imgproc.so;'"$OPENCV_DIR"'/lib/libopencv_imgproc.so;g' third_party/opencv_linux.BUILD
+sed -i 's;-l:libopencv_video.so;'"$OPENCV_DIR"'/lib/libopencv_video.so;g' third_party/opencv_linux.BUILD
+sed -i 's;-l:libopencv_videoio.so;'"$OPENCV_DIR"'/lib/libopencv_videoio.so;g' third_party/opencv_linux.BUILD
 echo "Done"
 
 echo "--------------------------------"
